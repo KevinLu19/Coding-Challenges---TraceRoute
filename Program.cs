@@ -1,14 +1,39 @@
-﻿
+﻿using CodingChallenges_TraceRoute.Sockets;
+
+namespace CodingChallenges_TraceRoute;
+
 public class Program
 {
-	private const int _MAX_NUM_HOPS = 30;
-	private const string _packet_sending = "some random packet. mainly for testing the traceroute and not the packet itself.";
 	private static void Main(string[] args)
 	{
-		Console.WriteLine("Hello, World!");
-		Console.WriteLine("Traceroute command. Enter the host name for the traceroute command");
-		var hostname = Console.Read();
+		//Console.WriteLine("Traceroute command. Enter the host name for the traceroute command");
 
-		Console.WriteLine(hostname);
+		// string name = Console.ReadLine();
+
+		//Traceroute rt = new Traceroute(name);
+
+		//rt.Print();
+
+		
+		// Need to open 2 terminasl. One for server and the other for client.
+		if (args.Length == 0)
+		{
+			Console.WriteLine("Please specify 'server' or 'client' as the first argument.");
+			return;
+		}
+
+		if (args[0].ToLower() == "server")
+		{
+			Server socket_server = new Server();
+		}
+		else if (args[0].ToLower() == "client")
+		{
+			Client socket_client = new Client();
+		}
+		else
+		{
+			Console.WriteLine("Invalid argument. Use 'server' or 'client'.");
+		}
 	}
+
 }
