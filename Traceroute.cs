@@ -9,16 +9,13 @@ namespace CodingChallenges_TraceRoute;
 public class Traceroute
 {
     private string _hostname;
-	private const int _MAX_NUM_HOPS = 30;
-	private const string _packet_sending = "some random packet. mainly for testing the traceroute and not the packet itself.";
 	public Traceroute(string hostname)
     {
         _hostname = hostname;
-
     }
 
-    public void Print()
+    public void PrintFirstLine()
 	{
-        Console.WriteLine($"cctraceroute {_hostname}");
+        Console.WriteLine($"traceroute to <host>, <max hops>, <byte packets>");
     }
 }
