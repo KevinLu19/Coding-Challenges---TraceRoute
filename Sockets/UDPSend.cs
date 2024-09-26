@@ -5,18 +5,14 @@ using System.Text;
 
 namespace CodingChallenges_TraceRoute.Sockets;
 
-public interface IUDPSend
-{
-    public string GetHost();
-    public int GetMaxHops();
-    public void GetBytePacket();
-}
 
-public class UDPSend : IUDPSend
+
+public class UDPSend 
 {
     private const int _MAX_HOPS = 30;
 	private const string _random_sending_message = "Complete random string sending to server. Not important here.";
     private static string _host_name;
+    private static byte _num_message;
 
 	public UDPSend()
     {
@@ -42,6 +38,7 @@ public class UDPSend : IUDPSend
 
             // Send message.
             byte[] message = Encoding.ASCII.GetBytes(_random_sending_message);
+            _num_message = message[0];
 
             send_sock.SendTo(message, dest_end);
 		}
@@ -84,8 +81,8 @@ public class UDPSend : IUDPSend
     {
         return _MAX_HOPS;
     }
-	public void GetBytePacket()
+	public byte GetBytePacket()
     {
-
+        return _num_message;
     }
 }

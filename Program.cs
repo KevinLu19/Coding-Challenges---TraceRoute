@@ -6,14 +6,15 @@ public class Program
 {
 	private static void Main(string[] args)
 	{
-		//Console.WriteLine("Traceroute command. Enter the host name for the traceroute command");
+		Console.WriteLine("------------");
+		Console.WriteLine("Traceroute command. Enter the host name for the traceroute command");
+		Console.WriteLine("------------");
 
-		UDPSend udp_send = new UDPSend();
+		//UDPSend udp_send = new UDPSend();
 
-		string name = Console.ReadLine();
-		Traceroute rt = new Traceroute(name);
 
-		rt.PrintFirstLine();
+		_ = new Traceroute();
+
 	}
 
 }
